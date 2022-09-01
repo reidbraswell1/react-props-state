@@ -13,12 +13,20 @@ class App extends Component {
       list: list,
       text: text,
     }
+
+    this.handleOnChangeInput = this.handleOnChangeInput.bind(this);
+  }
+
+  handleOnChangeInput(event) {
+    this.setState({text:event.target.value});
   }
 
   render() {
     return (
       <div>
         <h1>Hello World</h1>
+        <label htmlFor="toDoInput">Add to do item </label>
+        <input id="toDoInput" value={this.state.text} onChange={this.handleOnChangeInput}></input>
         <ul>
           {this.state.list.map((value,index, array) => {
             console.log(value);
