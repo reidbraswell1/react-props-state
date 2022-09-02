@@ -1,13 +1,15 @@
 import "./css/App.css";
-import { Component } from 'react';
+import { Component } from "react";
+import React from "react";
+import ReactDOM  from "react-dom/client";
 import List from "./components/List.jsx";
 
 class App extends Component {
   constructor(props) {
     super(props)
 
-    let list = ["ready", "set", "GO"];
-    let text = "";
+    const list = ["ready", "set", "GO"];
+    const text = "";
 
     this.state = {
       list: list,
@@ -31,27 +33,40 @@ class App extends Component {
     let newList = this.state.list.slice(0);
     newList.push(this.state.text)
     this.setState({list:newList})
+    this.setState({text:""});
     console.log(`This.state.list=${this.state.list}`);
     console.log(`---End onSubmit()---`);
   }
 
   render() {
     return (
-      <div>
-        <h1>Hello World</h1>
-        <label htmlFor="toDoInput">Add to do item </label>
-        <form onSubmit={this.onSubmit}>
-          <input id="toDoInput" value={this.state.text} onChange={this.handleOnChangeInput}></input>
-          <button type="submit">Add</button>
-        </form>
-        <ul>
-          {this.state.list.map((value,index, array) => {
-            console.log(value);
-              let listId = `List:${index}`;
-              let listText = value;
-              return <List key={index} id={listId} text={listText}></List>
-          })}
-        </ul>
+      <div className="row">
+        <div className="col text-center">
+          <h1>React State and Props To Do List</h1>
+        </div>
+        <div className="row">
+          <div className="col-3" style={{ marginLeft: 'auto', marginRight: 'auto'}}>
+            <form onSubmit={this.onSubmit}>
+              <div className="form-group">
+                <label htmlFor="toDoInput">Add to do item </label>
+                <input id="toDoInput" className="form-control" value={this.state.text} onChange={this.handleOnChangeInput}></input>
+                <button className="mt-2" type="submit">Add</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-3" style={{ marginLeft: 'auto', marginRight: 'auto'}}>
+            <ul className="list-group mt-4">
+              {this.state.list.map((value,index, array) => {
+                console.log(value);
+                let listId = `List:${index}`;
+                let listText = value;
+                return <List key={index} id={listId} text={listText}></List>
+              })}
+            </ul>
+          </div>
+        </div>
       </div>
     );
   }
