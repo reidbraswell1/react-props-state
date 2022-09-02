@@ -42,7 +42,7 @@ class App extends Component {
     return (
       <div className="row">
         <div className="col text-center">
-          <h1>React State and Props To Do List</h1>
+          <h1>React State and Props</h1>
         </div>
         <div className="row">
           <div className="col-3" style={{ marginLeft: 'auto', marginRight: 'auto'}}>
@@ -56,8 +56,13 @@ class App extends Component {
           </div>
         </div>
         <div className="row">
-          <div className="col-3" style={{ marginLeft: 'auto', marginRight: 'auto'}}>
-            <ul className="list-group mt-4">
+          <div className="col text-center">
+            <h4>To Do List</h4>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-3 border border-primary rounded mt-4" style={{ marginLeft: 'auto', marginRight: 'auto'}}>
+            <ul className="list-group mt-2 mb-2">
               {this.state.list.map((value,index, array) => {
                 console.log(value);
                 let listId = `List:${index}`;
