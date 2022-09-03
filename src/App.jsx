@@ -1,7 +1,6 @@
 import "./css/App.css";
 import { Component } from "react";
 import React from "react";
-import ReactDOM  from "react-dom/client";
 import List from "./components/List.jsx";
 
 class App extends Component {
@@ -37,7 +36,7 @@ class App extends Component {
     switch (buttonValue) {
       case "Add":
         // Don't process empty string
-        if (!this.state.text || this.state.text.length == 0) {
+        if (!this.state.text || this.state.text.length === 0) {
           console.log(`Empty String`);
         }
         else {
@@ -49,7 +48,7 @@ class App extends Component {
         }
         break;
       case "Delete":
-        if(!this.state.text || this.state.text.length == 0) {
+        if(!this.state.text || this.state.text.length === 0) {
           console.log(`Empty String`);
         }
         else {
@@ -67,7 +66,9 @@ class App extends Component {
           this.setState({text:""});
         }
         break; 
-
+      default: 
+        console.log(`Invalid Button value ${buttonValue}`);
+        break;
     }
     console.log(`---End onSubmit()---`);
   }
