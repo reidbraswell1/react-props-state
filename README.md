@@ -1,70 +1,46 @@
-# Getting Started with Create React App
+# Create a todo list that can be viewed by the user, and a form where the user can add new items to the todo list stored in state.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+1. Project structure:
+    1. Create a new folder within `src/` called `components/`
+    1. Change your `App.js` to `App.jsx`. This will enable more VSCode emmet abbreviations for the file.
+    1. Change the contents of your `App.jsx` to be a class with a render method that returns `<div><h1>Hello World</h1></div>`.
+1. Managing State
+    1. Create a constructor for the `App` class.
+    1. In the body of the constructor, assign an object to a property called `state`.
+    1. On the state object, add two properties:
+        - `list`
+        - `text`
+    1. Assign `list` as the following array: `["ready", "set", "GO"]`
+    1. Assign `text` as an empty string
+1. Rendering Lists
+    
+    A __rendered list__ in React is an array of JSX that we return to the ReactDOM. Render the state list as a React rendered list.
+    1. Update the `return` statement of the render method to have an `ul` underneath the `h1`.
+    1. As a child of the `ul`, call `this.state.list.map` within a JSX expression.
+    1. The callback function passed into the map method should return a `li` element.
+    1. For each string in `this.state.list` that you map over, use the string value as the text content of the returned `li`.
+    1. Lastly, add a `key` prop to the returned `li` that is set to the value of the element's index in `this.state.list`.
+1. Controlled Inputs 
+    
+    A controlled input in React is an input where it's `value` attribute is set to a state value, and when the value of the input changes, the component state changes. Create a controlled input so that `this.state.text` is bound to the input.
+    1. Update the `return` statement of the `render` method to have an input above the `ul`.
+    1. Add a `value` prop to the `input` that is set to `this.state.text`.
+    1. Add an `onChange` prop to the `input` that is set to a function that will:
+        - Receive the __HTMLChangeEvent__ as a parameter.
+        - Call `this.setState()` to update `this.state.text` to `e.target.value` (the value that is in the input).
+1. Updating State
 
-## Available Scripts
+    Add functionality to add a new item to the todo list.
+    1. Wrap the `input` element in a `form`
+    1. Add a `button` element below the `input` element at the bottom of the `form` element.
+        - Add a `type` attribute of "submit".
+        - Add text content of "Add".
+    1. Create a method named `onSubmit` on the `App` class that will:
+         - Receive the `HTMLSubmitEvent` as a parameter.
+         - Call the `preventDefault()` method on the parameter event.
+         - Call `this.setState()` to update the `this.state.list` value to a new array contains all of the previous list items and the current `this.state.text`.
+    1. Add an `onSubmit` prop to the `form` element that is set to the method `this.onSubmit`.
+    1. In the constructor, bind `this` to the `this.onSubmit` method.
+        - `this.onSubmit = this.onSubmit.bind(this)`;
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+At this point, you should be able to type a new task in the input element, click add, and see the new list item displayed in the unordered list on the screen!
