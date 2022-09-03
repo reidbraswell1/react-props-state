@@ -44,3 +44,8 @@
         - `this.onSubmit = this.onSubmit.bind(this)`;
 
 At this point, you should be able to type a new task in the input element, click add, and see the new list item displayed in the unordered list on the screen!
+
+Additional features added:
+- Boostrap styling.
+- Delete button for deleting entries from the to do list.
+
