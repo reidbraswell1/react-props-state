@@ -76,7 +76,7 @@ class App extends Component {
   render() {
     return (
       <div className="row">
-        <div className="col text-center">
+        <div className="col text-center mt-3">
           <h1>React State and Props</h1>
         </div>
         <div className="row">
