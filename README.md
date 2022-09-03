@@ -1,5 +1,7 @@
 # Create a todo list that can be viewed by the user, and a form where the user can add new items to the todo list stored in state.
 
+![To Do List](/react-props-state/ReactStateAndPropsToDoList.png?raw=true "To Do List")
+
 1. Project structure:
     1. Create a new folder within `src/` called `components/`
     1. Change your `App.js` to `App.jsx`. This will enable more VSCode emmet abbreviations for the file.
