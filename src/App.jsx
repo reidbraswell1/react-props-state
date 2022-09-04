@@ -44,6 +44,7 @@ class App extends Component {
           let newList = this.state.list.slice(0);
           newList.push(this.state.text)
           this.setState({list:newList})
+          // Clear text so that it won't be displayed on subsequent add
           this.setState({text:""});
         }
         break;
@@ -55,10 +56,7 @@ class App extends Component {
           let newList = [];
           let deleteIndex = parseInt(this.state.text);
           for(let i=0; i < this.state.list.length; i++) {
-            if(deleteIndex === i + 1) {
-
-            }
-            else {
+            if(!deleteIndex === (i + 1)) {
               newList.push(this.state.list[i]);
             }
           }
