@@ -56,7 +56,7 @@ class App extends Component {
           let newList = [];
           let deleteIndex = parseInt(this.state.text);
           for(let i=0; i < this.state.list.length; i++) {
-            if(!deleteIndex === (i + 1)) {
+            if(deleteIndex !== (i + 1)) {
               newList.push(this.state.list[i]);
             }
           }
