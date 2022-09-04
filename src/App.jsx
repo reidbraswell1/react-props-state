@@ -42,10 +42,9 @@ class App extends Component {
         else {
           // Must use a new array
           let newList = this.state.list.slice(0);
-          newList.push(this.state.text)
-          this.setState({list:newList})
+          newList.push(this.state.text);
           // Clear text so that it won't be displayed on subsequent add
-          this.setState({text:""});
+          this.setState({list:newList, text:""});
         }
         break;
       case "Delete":
@@ -60,8 +59,8 @@ class App extends Component {
               newList.push(this.state.list[i]);
             }
           }
-          this.setState({list:newList});
-          this.setState({text:""});
+          // Clear text so that it won't be displayed on subsequent add
+          this.setState({list:newList, text:""});
         }
         break; 
       default: 
