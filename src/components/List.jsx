@@ -14,7 +14,10 @@ class List extends Component {
     }
 
     render() {
-        return (<li className="list-group-item" id="this.props.id">{this.props.text}</li>)
+        // Destructuring
+        const {id, text} = this.props;
+        
+        return (<li className="list-group-item" id={id}>{text}</li>)
     }   
 }
 export default List;
