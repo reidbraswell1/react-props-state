@@ -33,10 +33,14 @@ class App extends Component {
     console.log(`---Begin onSubmit()---`);
     let buttonValue = event.target.value;
     event.preventDefault();
+
+    // Destructuring state
+    const { text } = this.state;
+    
     switch (buttonValue) {
       case "Add":
         // Don't process empty string
-        if (!this.state.text || this.state.text.length === 0) {
+        if (!text || text.length === 0) {
           console.log(`Empty String`);
         }
         else {
