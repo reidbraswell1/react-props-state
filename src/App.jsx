@@ -1,7 +1,9 @@
 import "./css/App.css";
 import { Component } from "react";
+import "./App.css";
 import React from "react";
 import List from "./components/List.jsx";
+import Footer from "./components/Footer.jsx";
 
 class App extends Component {
   constructor(props) {
@@ -109,6 +111,7 @@ class App extends Component {
             </ul>
           </div>
         </div>
+        <Footer></Footer>
       </div>
     );
   }
