@@ -2,11 +2,22 @@
 
 ![To Do List](/ReactStateAndProps-ToDoList.png?raw=true "To Do List")
 
-1. Project structure:
+1. __Exercise 1 Project structure:__
     1. Create a new folder within `src/` called `components/`
     1. Change your `App.js` to `App.jsx`. This will enable more VSCode emmet abbreviations for the file.
     1. Change the contents of your `App.jsx` to be a class with a render method that returns `<div><h1>Hello World</h1></div>`.
-1. Managing State
+```
+class App extends React.Component {
+  render() {
+    return (
+      <div>
+        <h1>Hello World</h1>
+      </div>
+    );
+  }
+}
+```
+2. __Exercise 2: Managing State__
     1. Create a constructor for the `App` class.
     1. In the body of the constructor, assign an object to a property called `state`.
     1. On the state object, add two properties:
@@ -14,7 +25,8 @@
         - `text`
     1. Assign `list` as the following array: `["ready", "set", "GO"]`
     1. Assign `text` as an empty string
-1. Rendering Lists
+
+3. __Exercise 3: Rendering Lists__
     
     A __rendered list__ in React is an array of JSX that we return to the ReactDOM. Render the state list as a React rendered list.
     1. Update the `return` statement of the render method to have an `ul` underneath the `h1`.
@@ -22,7 +34,8 @@
     1. The callback function passed into the map method should return a `li` element.
     1. For each string in `this.state.list` that you map over, use the string value as the text content of the returned `li`.
     1. Lastly, add a `key` prop to the returned `li` that is set to the value of the element's index in `this.state.list`.
-1. Controlled Inputs 
+
+4. __Exercise 4: Controlled Inputs__ 
     
     A controlled input in React is an input where it's `value` attribute is set to a state value, and when the value of the input changes, the component state changes. Create a controlled input so that `this.state.text` is bound to the input.
     1. Update the `return` statement of the `render` method to have an input above the `ul`.
@@ -30,7 +43,8 @@
     1. Add an `onChange` prop to the `input` that is set to a function that will:
         - Receive the __HTMLChangeEvent__ as a parameter.
         - Call `this.setState()` to update `this.state.text` to `e.target.value` (the value that is in the input).
-1. Updating State
+        
+5. __Exercise 5: Updating State__
 
     Add functionality to add a new item to the todo list.
     1. Wrap the `input` element in a `form`
