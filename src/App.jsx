@@ -33,18 +33,22 @@ class App extends Component {
     console.log(`---Begin onSubmit()---`);
     let buttonValue = event.target.value;
     event.preventDefault();
+
+    // Destructuring state
+    const { text } = this.state;
+    
     switch (buttonValue) {
       case "Add":
         // Don't process empty string
-        if (!this.state.text || this.state.text.length === 0) {
+        if (!text || text.length === 0) {
           console.log(`Empty String`);
         }
         else {
           // Must use a new array
           let newList = this.state.list.slice(0);
-          newList.push(this.state.text)
-          this.setState({list:newList})
-          this.setState({text:""});
+          newList.push(this.state.text);
+          // Clear text so that it won't be displayed on subsequent add
+          this.setState({list:newList, text:""});
         }
         break;
       case "Delete":
@@ -55,15 +59,12 @@ class App extends Component {
           let newList = [];
           let deleteIndex = parseInt(this.state.text);
           for(let i=0; i < this.state.list.length; i++) {
-            if(deleteIndex === i + 1) {
-
-            }
-            else {
+            if(deleteIndex !== (i + 1)) {
               newList.push(this.state.list[i]);
             }
           }
-          this.setState({list:newList});
-          this.setState({text:""});
+          // Clear text so that it won't be displayed on subsequent add
+          this.setState({list:newList, text:""});
         }
         break; 
       default: 
